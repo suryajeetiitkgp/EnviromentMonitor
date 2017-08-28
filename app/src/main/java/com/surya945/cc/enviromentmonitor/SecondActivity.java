@@ -25,7 +25,7 @@ public class SecondActivity extends AppCompatActivity implements SensorEventList
     private Sensor temperature;
     private Sensor pressure;
 
-    GraphView graph_Acce,graph_Gyro, graph_Temperature, graph_Pressure;
+    GraphView graph_Acce,graph_Gyro, graph_Light, graph_Mag;
     private LineGraphSeries<DataPoint> series_Acc, series_Gyro, series_Light, series_Mag;
 
     HandlerClass handlerClass;
@@ -46,28 +46,28 @@ public class SecondActivity extends AppCompatActivity implements SensorEventList
         graph_Gyro.getViewport().setScalable(true); // enables horizontal zooming and scrolling
         //graph_Gyro.getViewport().setScalableY(true); // enables vertical zooming and scrolling
 
-        graph_Temperature =(GraphView)findViewById(R.id.graphViewTemperature);
-        graph_Temperature.getViewport().setScalable(true); // enables horizontal zooming and scrolling
-        // graph_Temperature.getViewport().setScalableY(true); // enables vertical zooming and scrolling
+        graph_Light =(GraphView)findViewById(R.id.graphViewTemperature);
+        graph_Light.getViewport().setScalable(true); // enables horizontal zooming and scrolling
+        // graph_Light.getViewport().setScalableY(true); // enables vertical zooming and scrolling
 
-        graph_Pressure =(GraphView)findViewById(R.id.graphViewGyropressure);
-        graph_Pressure.getViewport().setScalable(true); // enables horizontal zooming and scrolling
-        // graph_Pressure.getViewport().setScalableY(true); // enables vertical zooming and scrolling
+        graph_Mag =(GraphView)findViewById(R.id.graphViewGyropressure);
+        graph_Mag.getViewport().setScalable(true); // enables horizontal zooming and scrolling
+        // graph_Mag.getViewport().setScalableY(true); // enables vertical zooming and scrolling
 
-        graph_Acce.getViewport().setYAxisBoundsManual(true);
+      /*  graph_Acce.getViewport().setYAxisBoundsManual(true);
         graph_Acce.getViewport().setMinY(0);
         graph_Acce.getViewport().setMaxY(30);
-        graph_Temperature.getViewport().setYAxisBoundsManual(true);
-        graph_Temperature.getViewport().setMinY(0);
-        graph_Temperature.getViewport().setMaxY(30);
+        graph_Light.getViewport().setYAxisBoundsManual(true);
+        graph_Light.getViewport().setMinY(0);
+        graph_Light.getViewport().setMaxY(30);
 
         graph_Gyro.getViewport().setYAxisBoundsManual(true);
         graph_Gyro.getViewport().setMinY(0);
         graph_Gyro.getViewport().setMaxY(10);
-        graph_Pressure.getViewport().setYAxisBoundsManual(true);
-        graph_Pressure.getViewport().setMinY(0);
-        graph_Pressure.getViewport().setMaxY(30);
-
+        graph_Mag.getViewport().setYAxisBoundsManual(true);
+        graph_Mag.getViewport().setMinY(0);
+        graph_Mag.getViewport().setMaxY(30);
+*/
         // data
         series_Acc = new LineGraphSeries<DataPoint>();
         series_Acc.setTitle("Accelerometer");
@@ -91,16 +91,16 @@ public class SecondActivity extends AppCompatActivity implements SensorEventList
         graph_Gyro.getLegendRenderer().setVisible(true);
         graph_Gyro.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
-        graph_Temperature.getLegendRenderer().setVisible(true);
-        graph_Temperature.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+        graph_Light.getLegendRenderer().setVisible(true);
+        graph_Light.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
-        graph_Pressure.getLegendRenderer().setVisible(true);
-        graph_Pressure.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+        graph_Mag.getLegendRenderer().setVisible(true);
+        graph_Mag.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
         graph_Acce.addSeries(series_Acc);
         graph_Gyro.addSeries(series_Gyro);
-        graph_Temperature.addSeries(series_Light);
-        graph_Pressure.addSeries(series_Mag);
+        graph_Light.addSeries(series_Light);
+        graph_Mag.addSeries(series_Mag);
 
     }
     int indexAcce=0,indexGyro=0, indexLight =0, indexMag =0;
